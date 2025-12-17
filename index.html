@@ -1,56 +1,367 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/ignix-eye/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignix-Eye | Стратегия роста на базе инноваций</title>
+    <meta name="description" content="Консалтинг-блог Ignix-Eye. Инновационные технологии и карьерный рост. Решения, которые меняют правила игры.">
+
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script type="module" crossorigin src="/ignix-eye/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/ignix-eye/assets/styles-guStct1H.css">
+    <link rel="stylesheet" crossorigin href="/ignix-eye/assets/styles-B8HPFtsA.css">
   </head>
   <body>
-    <header class="header">
-  <div class="container">
-    <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        <svg class="nav-logo-icon" width="100" height="30">
-          <use href="{=$icon-path}"></use>
-        </svg>
+    <header class="header" id="header">
+  <div class="container header__container">
+      <a href="/" class="header__logo">
+          <i data-lucide="eye" class="header__logo-icon"></i>
+          <span class="header__logo-text">Ignix-Eye</span>
       </a>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-act}" href="./page-2.html">Page 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">Page 3</a>
-        </li>
+
+      <nav class="header__nav">
+          <ul class="header__menu">
+              <li class="header__item"><a href="#hero" class="header__link">Главная</a></li>
+              <li class="header__item"><a href="#about" class="header__link">О платформе</a></li>
+              <li class="header__item"><a href="#benefits" class="header__link">Преимущества</a></li>
+              <li class="header__item"><a href="#innovations" class="header__link">Инновации</a></li>
+              <li class="header__item"><a href="#blog" class="header__link">Блог</a></li>
+          </ul>
+      </nav>
+
+      <div class="header__actions">
+          <a href="#contact" class="btn btn--primary header__btn">Начать сейчас</a>
+          <button class="header__burger" aria-label="Открыть меню">
+              <span class="header__burger-line"></span>
+              <span class="header__burger-line"></span>
+          </button>
+      </div>
+  </div>
+
+  <div class="mobile-menu">
+      <ul class="mobile-menu__list">
+          <li><a href="#hero" class="mobile-menu__link">Главная</a></li>
+          <li><a href="#about" class="mobile-menu__link">О платформе</a></li>
+          <li><a href="#benefits" class="mobile-menu__link">Преимущества</a></li>
+          <li><a href="#innovations" class="mobile-menu__link">Инновации</a></li>
+          <li><a href="#blog" class="mobile-menu__link">Блог</a></li>
+          <li><a href="#contact" class="mobile-menu__link">Контакты</a></li>
       </ul>
-    </nav>
   </div>
 </header>
 
-
-    <main>
+    <main class="main">
       <!-- Loads the specified .html file -->
-      
+      <section id="hero" class="hero">
+  <div class="hero__bg"></div>
+  <div class="container hero__container">
+      <div class="hero__content">
+          <div class="hero__badge">
+              <span class="hero__badge-dot"></span>
+              Платформа уже доступна в Европе
+          </div>
+          <h1 class="hero__title reveal-text">
+              Стратегия роста <br>
+              <span class="text-gradient">на базе инноваций</span>
+          </h1>
+          <p class="hero__subtitle fade-in">
+              Переосмыслите подход к развитию. Технология нового поколения для построения карьеры и пассивного дохода.
+          </p>
+          <div class="hero__actions fade-in">
+              <a href="#contact" class="btn btn--primary btn--lg">Начать сейчас</a>
+              <a href="#about" class="btn btn--outline">Узнать детали</a>
+          </div>
+      </div>
+      <div class="hero__visual fade-in">
+          <div class="hero__circle"></div>
+          <div class="hero__card-glass">
+              <i data-lucide="bar-chart-2" class="hero__icon"></i>
+              <div>
+                  <span>Рост активов</span>
+                  <strong>+124%</strong>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section id="about" class="section about">
+  <div class="container">
+      <div class="section__header">
+          <h2 class="section__title reveal-text">О платформе</h2>
+          <p class="section__desc fade-in">Решения, которые меняют правила игры в мире консалтинга.</p>
+      </div>
+      <div class="about__grid">
+          <div class="about__item fade-in-up">
+              <span class="about__number">01</span>
+              <h3 class="about__heading">Экспертная поддержка</h3>
+              <p>Мы — проверенный партнер. Сопровождаем вас на всех этапах: от регистрации до первых результатов.</p>
+          </div>
+          <div class="about__item fade-in-up" data-delay="0.1">
+              <span class="about__number">02</span>
+              <h3 class="about__heading">Цифровая инфраструктура</h3>
+              <p>Передовая технология, обеспечивающая стабильность и безопасность ваших данных.</p>
+          </div>
+          <div class="about__item fade-in-up" data-delay="0.2">
+              <span class="about__number">03</span>
+              <h3 class="about__heading">Быстрый старт</h3>
+              <p>Подключение занимает 2 минуты. Легко разобраться без опыта и начать действовать.</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section id="benefits" class="section benefits">
+  <div class="container">
+      <div class="section__header">
+          <h2 class="section__title reveal-text">Преимущества</h2>
+          <p class="section__desc fade-in">Почему выбирают Ignix-Eye</p>
+      </div>
+      <div class="benefits__grid">
+          <div class="card fade-in-up">
+              <div class="card__icon-box">
+                  <i data-lucide="zap"></i>
+              </div>
+              <h3 class="card__title">Инновационная технология</h3>
+              <p class="card__text">AI-инструменты для реальных задач. Автоматизация рутины ради вашей свободы.</p>
+          </div>
+          <div class="card fade-in-up" data-delay="0.1">
+              <div class="card__icon-box">
+                  <i data-lucide="trending-up"></i>
+              </div>
+              <h3 class="card__title">Пассивный доход</h3>
+              <p class="card__text">Программа пассивного дохода, основанная на проверенных рыночных методологиях.</p>
+          </div>
+          <div class="card fade-in-up" data-delay="0.2">
+              <div class="card__icon-box">
+                  <i data-lucide="shield-check"></i>
+              </div>
+              <h3 class="card__title">Надежность</h3>
+              <p class="card__text">Методологии, доказавшие эффективность. Полная прозрачность процессов.</p>
+          </div>
+          <div class="card fade-in-up" data-delay="0.3">
+              <div class="card__icon-box">
+                  <i data-lucide="globe"></i>
+              </div>
+              <h3 class="card__title">Масштабируемость</h3>
+              <p class="card__text">Расширьте горизонты проекта. Работайте из любой точки мира, где есть интернет.</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section id="innovations" class="section innovations">
+  <div class="container">
+      <div class="innovations__wrapper">
+          <div class="innovations__content">
+              <h2 class="section__title reveal-text">Будущее уже здесь</h2>
+              <p class="innovations__text fade-in">
+                  Воплотите мечты в реальность с помощью наших алгоритмов.
+                  Это не просто софт, это экосистема для вашего успеха.
+              </p>
+              <ul class="innovations__list fade-in">
+                  <li><i data-lucide="check-circle"></i> Адаптация под пользователя</li>
+                  <li><i data-lucide="check-circle"></i> Предиктивная аналитика</li>
+                  <li><i data-lucide="check-circle"></i> Безопасность уровня Enterprise</li>
+              </ul>
+              <a href="#contact" class="btn btn--primary" style="margin-top: 30px;">Оценить перспективы</a>
+          </div>
+          <div class="innovations__visual fade-in">
+              <div class="cube-loader">
+                  <div class="cube-top"></div>
+                  <div class="cube-wrapper">
+                      <span style="--i:0" class="cube-span"></span>
+                      <span style="--i:1" class="cube-span"></span>
+                      <span style="--i:2" class="cube-span"></span>
+                      <span style="--i:3" class="cube-span"></span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section id="blog" class="section blog">
+  <div class="container">
+      <div class="section__header">
+          <h2 class="section__title reveal-text">База знаний</h2>
+          <p class="section__desc fade-in">Пошаговый путь, понятный каждому</p>
+      </div>
+      <div class="blog__grid">
+          <article class="blog-card fade-in-up">
+              <div class="blog-card__image">
+                  <img src="img/placeholder.png" alt="Strategy" style="background: #1f2833; width:100%; height:100%;">
+              </div>
+              <div class="blog-card__content">
+                  <span class="blog-card__tag">Карьера</span>
+                  <h3 class="blog-card__title">Как построить карьеру, которая работает на вас</h3>
+                  <a href="#" class="blog-card__link">Читать далее <i data-lucide="arrow-right"></i></a>
+              </div>
+          </article>
+          <article class="blog-card fade-in-up" data-delay="0.1">
+              <div class="blog-card__image">
+                  <img src="img/placeholder.png" alt="AI Tech" style="background: #1f2833; width:100%; height:100%;">
+              </div>
+              <div class="blog-card__content">
+                  <span class="blog-card__tag">Технологии</span>
+                  <h3 class="blog-card__title">AI для обычных людей: с чего начать?</h3>
+                  <a href="#" class="blog-card__link">Читать далее <i data-lucide="arrow-right"></i></a>
+              </div>
+          </article>
+          <article class="blog-card fade-in-up" data-delay="0.2">
+              <div class="blog-card__image">
+                  <img src="img/placeholder.png" alt="Finance" style="background: #1f2833; width:100%; height:100%;">
+              </div>
+              <div class="blog-card__content">
+                  <span class="blog-card__tag">Финансы</span>
+                  <h3 class="blog-card__title">Стратегия роста: практические советы</h3>
+                  <a href="#" class="blog-card__link">Читать далее <i data-lucide="arrow-right"></i></a>
+              </div>
+          </article>
+      </div>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <div class="container">
+      <div class="contact__wrapper">
+          <div class="contact__info fade-in">
+              <h2 class="section__title">Бесплатная консультация</h2>
+              <p class="contact__desc">
+                  Оставьте заявку, и наш эксперт свяжется с вами для обсуждения деталей.
+                  Предложение активно только в странах ЕС.
+              </p>
+              <div class="contact__details">
+                  <div class="contact__item">
+                      <i data-lucide="mail"></i>
+                      <span>support@ignix-eye.blog</span>
+                  </div>
+                  <div class="contact__item">
+                      <i data-lucide="clock"></i>
+                      <span>Пн-Пт: 9:00 - 18:00 (CET)</span>
+                  </div>
+              </div>
+          </div>
+
+          <form class="contact__form fade-in" id="consultationForm" novalidate>
+              <div class="form-group">
+                  <label for="name" class="form-label">Ваше имя</label>
+                  <input type="text" id="name" name="name" class="form-input" placeholder="Иван Иванов" required>
+                  <span class="error-msg">Пожалуйста, введите имя</span>
+              </div>
+
+              <div class="form-group">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="example@mail.com" required>
+                  <span class="error-msg">Введите корректный email</span>
+              </div>
+
+              <div class="form-group">
+                  <label for="phone" class="form-label">Телефон</label>
+                  <input type="tel" id="phone" name="phone" class="form-input" placeholder="Только цифры" required>
+                  <span class="error-msg">Введите номер (только цифры)</span>
+              </div>
+
+              <div class="form-group captcha-group">
+                  <label class="form-label">Подтвердите, что вы не робот: <span id="captcha-task"></span></label>
+                  <input type="number" id="captcha-input" class="form-input" required>
+                  <span class="error-msg" id="captcha-error">Неверный результат</span>
+              </div>
+
+              <div class="form-checkbox">
+                  <input type="checkbox" id="consent" name="consent" required>
+                  <label for="consent">Я согласен с <a href="./personal-data-policy.html">Политикой обработки данных</a></label>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--full">Запросить доступ</button>
+
+              <div class="form-status" id="formStatus">
+                  <i data-lucide="check-circle"></i>
+                  <span>Заявка успешно отправлена! Мы свяжемся с вами.</span>
+              </div>
+          </form>
+      </div>
+  </div>
+</section>
+
+
     </main>
 
     <footer class="footer">
   <div class="container">
-    <p class="footer-desc">
-      Made with ✨ by
-      <a
-        class="footer-link"
-        href="https://goit.global/ua/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GoIT team
-      </a>
-    </p>
+      <div class="footer__grid">
+          <div class="footer__col">
+              <a href="/" class="footer__logo">
+                  <i data-lucide="eye" class="footer__icon"></i>
+                  Ignix-Eye
+              </a>
+              <p class="footer__desc">
+                  Передовая цифровая инфраструктура для вашего роста. Экспертная поддержка на всех этапах.
+              </p>
+              <p class="footer__copyright">© 2025 Ignix-Eye.blog. All rights reserved.</p>
+          </div>
+
+          <div class="footer__col">
+              <h3 class="footer__title">Навигация</h3>
+              <ul class="footer__list">
+                  <li><a href="#about" class="footer__link">О платформе</a></li>
+                  <li><a href="#benefits" class="footer__link">Возможности</a></li>
+                  <li><a href="#innovations" class="footer__link">Инновации</a></li>
+                  <li><a href="#blog" class="footer__link">Блог</a></li>
+                  <li><a href="#contact" class="footer__link">Консультация</a></li>
+              </ul>
+          </div>
+
+          <div class="footer__col">
+              <h3 class="footer__title">Правовая информация</h3>
+              <ul class="footer__list">
+                <li><a href="./privacy.html" class="footer__link">Политика конфиденциальности</a></li>
+                <li><a href="./cookies.html" class="footer__link">Политика использования файлов cookie</a></li>
+                <li><a href="./terms.html" class="footer__link">Условия использования</a></li>
+                <li><a href="./return.html" class="footer__link">Политика возврата средств</a></li>
+                <li><a href="./disclaimer.html" class="footer__link">Отказ от ответственности</a></li>
+                <li><a href="./personal-data-policy.html" class="footer__link">Политика обработки персональных данных</a></li>
+              </ul>
+          </div>
+
+          <div class="footer__col">
+              <h3 class="footer__title">Контакты</h3>
+              <ul class="footer__contacts">
+                  <li class="footer__contact-item">
+                      <i data-lucide="map-pin"></i>
+                      <span>Friedrichstraße 12, 10117 Berlin, Deutschland</span>
+                  </li>
+                  <li class="footer__contact-item">
+                      <i data-lucide="mail"></i>
+                      <a href="mailto:hello@ignix-eye.blog">hello@ignix-eye.blog</a>
+                  </li>
+                  <li class="footer__contact-item">
+                      <i data-lucide="phone"></i>
+                      <a href="tel:+493012345678">+49 30 1234 5678</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+
+      <div class="footer__bottom">
+          <p>Предложение активно только в странах ЕС.</p>
+      </div>
   </div>
 </footer>
-
-
+    <div class="cookie-popup" id="cookiePopup">
+      <div class="cookie-popup__content">
+          <p>Этот сайт использует cookies для улучшения работы. Подробнее — в нашей <a href="./cookies.html">Cookie политике</a>.</p>
+          <button class="btn btn--primary btn--sm" id="acceptCookies">Принять</button>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   </body>
 </html>

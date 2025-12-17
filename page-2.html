@@ -5,29 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page 2</title>
-    <link rel="stylesheet" crossorigin href="/ignix-eye/assets/styles-guStct1H.css">
+    <link rel="stylesheet" crossorigin href="/ignix-eye/assets/styles-B8HPFtsA.css">
   </head>
   <body>
-    <header class="header">
-  <div class="container">
-    <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        <svg class="nav-logo-icon" width="100" height="30">
-          <use href="{=$icon-path}"></use>
-        </svg>
+    <header class="header" id="header">
+  <div class="container header__container">
+      <a href="/" class="header__logo">
+          <i data-lucide="eye" class="header__logo-icon"></i>
+          <span class="header__logo-text">Ignix-Eye</span>
       </a>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-act}" href="./page-2.html">Page 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">Page 3</a>
-        </li>
+
+      <nav class="header__nav">
+          <ul class="header__menu">
+              <li class="header__item"><a href="#hero" class="header__link">Главная</a></li>
+              <li class="header__item"><a href="#about" class="header__link">О платформе</a></li>
+              <li class="header__item"><a href="#benefits" class="header__link">Преимущества</a></li>
+              <li class="header__item"><a href="#innovations" class="header__link">Инновации</a></li>
+              <li class="header__item"><a href="#blog" class="header__link">Блог</a></li>
+          </ul>
+      </nav>
+
+      <div class="header__actions">
+          <a href="#contact" class="btn btn--primary header__btn">Начать сейчас</a>
+          <button class="header__burger" aria-label="Открыть меню">
+              <span class="header__burger-line"></span>
+              <span class="header__burger-line"></span>
+          </button>
+      </div>
+  </div>
+
+  <div class="mobile-menu">
+      <ul class="mobile-menu__list">
+          <li><a href="#hero" class="mobile-menu__link">Главная</a></li>
+          <li><a href="#about" class="mobile-menu__link">О платформе</a></li>
+          <li><a href="#benefits" class="mobile-menu__link">Преимущества</a></li>
+          <li><a href="#innovations" class="mobile-menu__link">Инновации</a></li>
+          <li><a href="#blog" class="mobile-menu__link">Блог</a></li>
+          <li><a href="#contact" class="mobile-menu__link">Контакты</a></li>
       </ul>
-    </nav>
   </div>
 </header>
-
 
     <main>
       <div class="container">
@@ -39,19 +56,64 @@
 
     <footer class="footer">
   <div class="container">
-    <p class="footer-desc">
-      Made with ✨ by
-      <a
-        class="footer-link"
-        href="https://goit.global/ua/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GoIT team
-      </a>
-    </p>
+      <div class="footer__grid">
+          <div class="footer__col">
+              <a href="/" class="footer__logo">
+                  <i data-lucide="eye" class="footer__icon"></i>
+                  Ignix-Eye
+              </a>
+              <p class="footer__desc">
+                  Передовая цифровая инфраструктура для вашего роста. Экспертная поддержка на всех этапах.
+              </p>
+              <p class="footer__copyright">© 2025 Ignix-Eye.blog. All rights reserved.</p>
+          </div>
+
+          <div class="footer__col">
+              <h3 class="footer__title">Навигация</h3>
+              <ul class="footer__list">
+                  <li><a href="#about" class="footer__link">О платформе</a></li>
+                  <li><a href="#benefits" class="footer__link">Возможности</a></li>
+                  <li><a href="#innovations" class="footer__link">Инновации</a></li>
+                  <li><a href="#blog" class="footer__link">Блог</a></li>
+                  <li><a href="#contact" class="footer__link">Консультация</a></li>
+              </ul>
+          </div>
+
+          <div class="footer__col">
+              <h3 class="footer__title">Правовая информация</h3>
+              <ul class="footer__list">
+                <li><a href="./privacy.html" class="footer__link">Политика конфиденциальности</a></li>
+                <li><a href="./cookies.html" class="footer__link">Политика использования файлов cookie</a></li>
+                <li><a href="./terms.html" class="footer__link">Условия использования</a></li>
+                <li><a href="./return.html" class="footer__link">Политика возврата средств</a></li>
+                <li><a href="./disclaimer.html" class="footer__link">Отказ от ответственности</a></li>
+                <li><a href="./personal-data-policy.html" class="footer__link">Политика обработки персональных данных</a></li>
+              </ul>
+          </div>
+
+          <div class="footer__col">
+              <h3 class="footer__title">Контакты</h3>
+              <ul class="footer__contacts">
+                  <li class="footer__contact-item">
+                      <i data-lucide="map-pin"></i>
+                      <span>Friedrichstraße 12, 10117 Berlin, Deutschland</span>
+                  </li>
+                  <li class="footer__contact-item">
+                      <i data-lucide="mail"></i>
+                      <a href="mailto:hello@ignix-eye.blog">hello@ignix-eye.blog</a>
+                  </li>
+                  <li class="footer__contact-item">
+                      <i data-lucide="phone"></i>
+                      <a href="tel:+493012345678">+49 30 1234 5678</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+
+      <div class="footer__bottom">
+          <p>Предложение активно только в странах ЕС.</p>
+      </div>
   </div>
 </footer>
-
   </body>
 </html>
