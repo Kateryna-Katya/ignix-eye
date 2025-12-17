@@ -903,3 +903,29 @@ img {
 .cookie-popup__content a { color: var(--color-primary); text-decoration: underline; }
 
 .btn--sm { padding: 8px 16px; font-size: 12px; }
+/* Статус отправки */
+.form-status {
+  display: none; /* Скрыто по умолчанию */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 40px;
+  background: var(--color-surface); /* Такой же фон, как у формы */
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-primary);
+  box-shadow: 0 0 30px rgba(102, 252, 241, 0.1);
+  animation: fadeIn 0.5s ease;
+  height: 100%; /* Чтобы занимало место формы */
+  min-height: 400px;
+}
+
+.form-status i {
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

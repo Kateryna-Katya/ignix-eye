@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- 2. Плавный скролл (Lenis) ---
-  // Проверка на существование библиотеки
   if (typeof Lenis !== 'undefined') {
       const lenis = new Lenis({
           duration: 1.2,
@@ -24,18 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(raf);
   }
 
-  // --- 3. Мобильное меню ---
+  // --- 3. Мобильное меню (Бургер) ---
   const burger = document.querySelector('.header__burger');
   const mobileMenu = document.querySelector('.mobile-menu');
   const mobileLinks = document.querySelectorAll('.mobile-menu__link');
 
   if (burger && mobileMenu) {
       const toggleMenu = () => {
-          mobileMenu.classList.toggle('is-active');
+          const isActive = mobileMenu.classList.toggle('is-active');
           burger.classList.toggle('is-active');
 
+          // Анимация полосок бургера
           const lines = burger.querySelectorAll('.header__burger-line');
-          if (mobileMenu.classList.contains('is-active')) {
+          if (isActive) {
               lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
               lines[1].style.transform = 'rotate(-45deg) translate(5px, -5px)';
           } else {
@@ -45,10 +45,16 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       burger.addEventListener('click', toggleMenu);
-      mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+      // Закрываем меню при клике на ссылку
+      mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+              if (mobileMenu.classList.contains('is-active')) toggleMenu();
+          });
+      });
   }
 
-  // --- 4. Хедер при скролле ---
+  // --- 4. Хедер: фон при скролле ---
   const header = document.querySelector('.header');
   if (header) {
       window.addEventListener('scroll', () => {
@@ -62,11 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // --- 5. Анимации GSAP (Основное исправление) ---
+  // --- 5. Анимации GSAP ---
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
 
-      // Анимация заголовков (SplitType) с проверкой
+      // A. Анимация заголовков (по буквам)
       if (typeof SplitType !== 'undefined') {
           const splitTypes = document.querySelectorAll('.reveal-text');
           splitTypes.forEach((char) => {
@@ -86,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
           });
       }
 
-      // Простое появление (Fade In)
+      // B. Простое появление (Fade In)
       const fadeElements = document.querySelectorAll('.fade-in');
       fadeElements.forEach(el => {
           gsap.fromTo(el,
@@ -99,39 +105,43 @@ document.addEventListener('DOMContentLoaded', () => {
                   scrollTrigger: {
                       trigger: el,
                       start: 'top 90%',
+                      toggleActions: 'play none none reverse'
                   }
               }
           );
       });
 
-      // ИСПРАВЛЕНИЕ: Пакетная анимация для карточек (.fade-in-up)
-      // Вместо forEach используем batch, чтобы гарантировать запуск для всех
+      // C. Пакетная анимация списков (Cards, Blog) - ИСПРАВЛЕНИЕ
+      // Скрываем элементы сразу
+      gsap.set(".fade-in-up", { opacity: 0, y: 50 });
+
+      // Используем batch для групповой анимации
       ScrollTrigger.batch(".fade-in-up", {
+          interval: 0.1, // Интервал проверки
+          batchMax: 3,   // Максимум элементов за раз
           onEnter: batch => {
               gsap.to(batch, {
                   opacity: 1,
                   y: 0,
-                  stagger: 0.15, // Задержка между появлением элементов
+                  stagger: 0.15,
                   duration: 0.8,
                   ease: "power2.out",
                   overwrite: true
               });
           },
-          // Начальное состояние задаем здесь, чтобы они не были видны до скролла
-          onRefresh: batch => {
-              gsap.set(batch, { opacity: 0, y: 50 });
+          onLeaveBack: batch => {
+              // Опционально: скрывать при скролле вверх, чтобы анимировать снова
+              // gsap.set(batch, { opacity: 0, y: 50 });
           }
       });
 
-      // Принудительно скрываем элементы перед началом анимации
-      gsap.set(".fade-in-up", { opacity: 0, y: 50 });
-
   } else {
-      console.error('GSAP or ScrollTrigger not loaded');
+      console.error('GSAP libraries are missing!');
   }
 
-  // --- 6. Форма и Валидация ---
+  // --- 6. Форма Контактов (Валидация + Капча) ---
   const form = document.getElementById('consultationForm');
+
   if (form) {
       const phoneInput = document.getElementById('phone');
       const captchaTask = document.getElementById('captcha-task');
@@ -139,12 +149,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const captchaError = document.getElementById('captcha-error');
       const formStatus = document.getElementById('formStatus');
 
-      // Только цифры
-      phoneInput.addEventListener('input', (e) => {
-          e.target.value = e.target.value.replace(/[^0-9+]/g, '');
-      });
+      // Разрешаем только цифры и плюс в телефоне
+      if (phoneInput) {
+          phoneInput.addEventListener('input', (e) => {
+              e.target.value = e.target.value.replace(/[^0-9+]/g, '');
+          });
+      }
 
-      // Капча
+      // Генерация капчи
       let num1 = Math.floor(Math.random() * 10) + 1;
       let num2 = Math.floor(Math.random() * 10) + 1;
       let captchaResult = num1 + num2;
@@ -154,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
           e.preventDefault();
           let isValid = true;
 
-          // Валидация пустых полей
+          // Валидация required полей
           const inputs = form.querySelectorAll('input[required]');
           inputs.forEach(input => {
               const group = input.closest('.form-group');
@@ -166,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
               }
           });
 
-          // Проверка капчи
+          // Валидация капчи
           if (parseInt(captchaInput.value) !== captchaResult) {
               const group = captchaInput.closest('.form-group');
               if (group) group.classList.add('error');
@@ -178,24 +190,29 @@ document.addEventListener('DOMContentLoaded', () => {
               if (captchaError) captchaError.style.display = 'none';
           }
 
+          // Если всё ок -> Отправляем
           if (isValid) {
               const btn = form.querySelector('button[type="submit"]');
-              const oldText = btn.textContent;
               btn.textContent = 'Отправка...';
               btn.disabled = true;
 
+              // Имитация задержки сервера
               setTimeout(() => {
+                  // 1. Скрываем форму
                   form.style.display = 'none';
+
+                  // 2. Показываем статус (если он есть в DOM)
                   if (formStatus) {
                       formStatus.style.display = 'flex';
-                      formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      // Скролл к сообщению, если нужно
+                      // formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
               }, 1500);
           }
       });
   }
 
-  // --- 7. Cookies ---
+  // --- 7. Cookie Popup ---
   const cookiePopup = document.getElementById('cookiePopup');
   const acceptBtn = document.getElementById('acceptCookies');
 
@@ -211,9 +228,11 @@ document.addEventListener('DOMContentLoaded', () => {
           cookiePopup.classList.remove('show');
       });
   }
+
 });
 
-// Дополнительный пересчет скролла после полной загрузки страницы (картинок и шрифтов)
+// --- 8. Фикс для подгрузки картинок ---
+// Пересчитываем позиции триггеров после полной загрузки страницы (картинок)
 window.addEventListener('load', () => {
   if (typeof ScrollTrigger !== 'undefined') {
       ScrollTrigger.refresh();
