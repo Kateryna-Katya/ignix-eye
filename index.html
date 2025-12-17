@@ -14,7 +14,7 @@
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script type="module" crossorigin src="/ignix-eye/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/ignix-eye/assets/styles-B8HPFtsA.css">
+    <link rel="stylesheet" crossorigin href="/ignix-eye/assets/styles-Q9T5Dgdy.css">
   </head>
   <body>
     <header class="header" id="header">
@@ -230,6 +230,7 @@
 <section id="contact" class="section contact">
   <div class="container">
       <div class="contact__wrapper">
+
           <div class="contact__info fade-in">
               <h2 class="section__title">Бесплатная консультация</h2>
               <p class="contact__desc">
@@ -239,7 +240,7 @@
               <div class="contact__details">
                   <div class="contact__item">
                       <i data-lucide="mail"></i>
-                      <span>hello@ignix-eye.blog</span>
+                      <a href="mailto:hello@ignix-eye.blog">hello@ignix-eye.blog</a>
                   </div>
                   <div class="contact__item">
                       <i data-lucide="clock"></i>
@@ -248,48 +249,56 @@
               </div>
           </div>
 
-          <form class="contact__form fade-in" id="consultationForm" novalidate>
-              <div class="form-group">
-                  <label for="name" class="form-label">Ваше имя</label>
-                  <input type="text" id="name" name="name" class="form-input" placeholder="Иван Иванов" required>
-                  <span class="error-msg">Пожалуйста, введите имя</span>
-              </div>
+          <div class="contact__form-container fade-in">
 
-              <div class="form-group">
-                  <label for="email" class="form-label">Email</label>
-                  <input type="email" id="email" name="email" class="form-input" placeholder="example@mail.com" required>
-                  <span class="error-msg">Введите корректный email</span>
-              </div>
+              <form class="contact__form" id="consultationForm" novalidate>
+                  <div class="form-group">
+                      <label for="name" class="form-label">Ваше имя</label>
+                      <input type="text" id="name" name="name" class="form-input" placeholder="Иван Иванов" required>
+                      <span class="error-msg">Пожалуйста, введите имя</span>
+                  </div>
 
-              <div class="form-group">
-                  <label for="phone" class="form-label">Телефон</label>
-                  <input type="tel" id="phone" name="phone" class="form-input" placeholder="Только цифры" required>
-                  <span class="error-msg">Введите номер (только цифры)</span>
-              </div>
+                  <div class="form-group">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" id="email" name="email" class="form-input" placeholder="example@mail.com" required>
+                      <span class="error-msg">Введите корректный email</span>
+                  </div>
 
-              <div class="form-group captcha-group">
-                  <label class="form-label">Подтвердите, что вы не робот: <span id="captcha-task"></span></label>
-                  <input type="number" id="captcha-input" class="form-input" required>
-                  <span class="error-msg" id="captcha-error">Неверный результат</span>
-              </div>
+                  <div class="form-group">
+                      <label for="phone" class="form-label">Телефон</label>
+                      <input type="tel" id="phone" name="phone" class="form-input" placeholder="Только цифры" required>
+                      <span class="error-msg">Введите номер (только цифры)</span>
+                  </div>
 
-              <div class="form-checkbox">
-                  <input type="checkbox" id="consent" name="consent" required>
-                  <label for="consent">Я согласен с <a href="./personal-data-policy.html">Политикой обработки данных</a></label>
-              </div>
+                  <div class="form-group captcha-group">
+                      <label class="form-label">Подтвердите, что вы не робот: <span id="captcha-task"></span></label>
+                      <input type="number" id="captcha-input" class="form-input" required>
+                      <span class="error-msg" id="captcha-error">Неверный результат</span>
+                  </div>
 
-              <button type="submit" class="btn btn--primary btn--full">Запросить доступ</button>
+                  <div class="form-checkbox">
+                      <input type="checkbox" id="consent" name="consent" required>
+                      <label for="consent">Я согласен с <a href="personal-data-policy.html">Политикой обработки данных</a></label>
+                  </div>
+
+                  <button type="submit" class="btn btn--primary btn--full">Запросить доступ</button>
+              </form>
 
               <div class="form-status" id="formStatus">
-                  <i data-lucide="check-circle"></i>
-                  <span>Заявка успешно отправлена! Мы свяжемся с вами.</span>
+                  <div class="status-icon-box">
+                      <i data-lucide="check" style="width: 32px; height: 32px; color: #0b0c10;"></i>
+                  </div>
+                  <h3 class="status-title">Заявка принята!</h3>
+                  <p class="status-text">
+                      Спасибо за обращение.<br>
+                      Мы свяжемся с вами по адресу <strong>hello@ignix-eye.blog</strong> (или вашему email) в ближайшее время.
+                  </p>
               </div>
-          </form>
+
+          </div>
       </div>
   </div>
 </section>
-
-
     </main>
 
     <footer class="footer">
