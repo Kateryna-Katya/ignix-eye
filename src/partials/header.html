@@ -1,19 +1,37 @@
-<header class="header">
-  <div class="container">
-    <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        <svg class="nav-logo-icon" width="100" height="30">
-          <use href="{=$icon-path}"></use>
-        </svg>
+<header class="header" id="header">
+  <div class="container header__container">
+      <a href="/" class="header__logo">
+          <i data-lucide="eye" class="header__logo-icon"></i>
+          <span class="header__logo-text">Ignix-Eye</span>
       </a>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-act}" href="./page-2.html">Page 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">Page 3</a>
-        </li>
+
+      <nav class="header__nav">
+          <ul class="header__menu">
+              <li class="header__item"><a href="#hero" class="header__link">Главная</a></li>
+              <li class="header__item"><a href="#about" class="header__link">О платформе</a></li>
+              <li class="header__item"><a href="#benefits" class="header__link">Преимущества</a></li>
+              <li class="header__item"><a href="#innovations" class="header__link">Инновации</a></li>
+              <li class="header__item"><a href="#blog" class="header__link">Блог</a></li>
+          </ul>
+      </nav>
+
+      <div class="header__actions">
+          <a href="#contact" class="btn btn--primary header__btn">Начать сейчас</a>
+          <button class="header__burger" aria-label="Открыть меню">
+              <span class="header__burger-line"></span>
+              <span class="header__burger-line"></span>
+          </button>
+      </div>
+  </div>
+
+  <div class="mobile-menu">
+      <ul class="mobile-menu__list">
+          <li><a href="#hero" class="mobile-menu__link">Главная</a></li>
+          <li><a href="#about" class="mobile-menu__link">О платформе</a></li>
+          <li><a href="#benefits" class="mobile-menu__link">Преимущества</a></li>
+          <li><a href="#innovations" class="mobile-menu__link">Инновации</a></li>
+          <li><a href="#blog" class="mobile-menu__link">Блог</a></li>
+          <li><a href="#contact" class="mobile-menu__link">Контакты</a></li>
       </ul>
-    </nav>
   </div>
 </header>
