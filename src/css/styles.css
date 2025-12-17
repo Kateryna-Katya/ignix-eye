@@ -929,3 +929,97 @@ img {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* --- Legal Pages Styles --- */
+.pages {
+  padding-top: calc(var(--header-height) + 60px);
+  /* Отступ от хедера */
+  padding-bottom: 80px;
+  background-color: var(--color-bg);
+  min-height: 100vh;
+}
+
+/* Ограничиваем ширину текста для удобства чтения */
+.pages .container {
+  max-width: 800px;
+}
+
+.pages h1 {
+  font-family: var(--font-heading);
+  font-size: 42px;
+  line-height: 1.2;
+  color: var(--color-primary);
+  /* Неоновый циан */
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 20px;
+}
+
+.pages h2 {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  color: #fff;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.pages p {
+  font-size: 16px;
+  color: var(--color-text);
+  margin-bottom: 20px;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+.pages ul {
+  margin-bottom: 24px;
+  padding-left: 20px;
+  list-style: none;
+  /* Убираем стандартные точки */
+}
+
+.pages li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  color: var(--color-text);
+  opacity: 0.9;
+}
+
+/* Кастомные буллеты */
+.pages li::before {
+  content: '•';
+  color: var(--color-primary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 20px;
+  line-height: 1;
+  top: -2px;
+}
+
+.pages strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.pages a {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.pages a:hover {
+  border-bottom-color: var(--color-primary);
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+  .pages h1 {
+    font-size: 32px;
+  }
+
+  .pages h2 {
+    font-size: 24px;
+  }
+}
